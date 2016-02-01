@@ -343,8 +343,19 @@ public class MainController {
 
                 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-                Date startDateTime = dateFormat.parse(textFieldGetOrdersStartTime.getText());
-                Date endDateTime = dateFormat.parse(textFieldGetOrdersEndTime.getText());
+                Date startDateTime = null;
+                String startTimeText = textFieldGetOrdersStartTime.getText();
+                if(startTimeText != null && !startTimeText.isEmpty())
+                {
+                    startDateTime = dateFormat.parse(startTimeText);
+                }
+
+                Date endDateTime = null;
+                String endTimeText = textFieldGetOrdersEndTime.getText();
+                if(endTimeText != null && !endTimeText.isEmpty())
+                {
+                    endDateTime = dateFormat.parse(endTimeText);
+                }
 
                 ArrayList<Character> orderStatuses = new ArrayList<>(10);
                 if(checkBoxGetOrdersStatusNew.isSelected())
@@ -392,7 +403,7 @@ public class MainController {
                     orderStatuses.add('G');
                 }
 
-                quickfix.fix44.Message message = MessageProvider.createOrderMassStatus2Request(account, symbol, reqID, startDateTime.getTime(), endDateTime.getTime(), orderStatuses);
+                quickfix.fix44.Message message = MessageProvider.createOrderMassStatus2Request(account, symbol, reqID, startDateTime, endDateTime, orderStatuses);
                 fixApplication.sendMessage(message);
             }
         } catch (InvalidKeyException | NoSuchAlgorithmException | DateTimeParseException e) {

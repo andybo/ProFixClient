@@ -175,7 +175,7 @@ public class MessageProvider {
         return orderMassStatus2Request;
     }
 
-    public static Message createOrderMassStatus2Request(String account, String symbol, String reqID, long startTimeMillis, long endTimeMillis, List<Character> orderStatuses) {
+    public static Message createOrderMassStatus2Request(String account, String symbol, String reqID, Date startDateTime, Date endDateTime, List<Character> orderStatuses) {
         Message orderMassStatus2Request = new Message();
         orderMassStatus2Request.getHeader().setField(new MsgType("AF2"));
         orderMassStatus2Request.setField(new Account(account));
@@ -184,13 +184,20 @@ public class MessageProvider {
         orderMassStatus2Request.setField(new Account(account));
         orderMassStatus2Request.setField(new Symbol(symbol));
 
-        UtcTimeStampField startTime = new UtcTimeStampField(9010);
-        startTime.setValue(new Date(startTimeMillis));
-        orderMassStatus2Request.setField(startTime);
+        if(startDateTime != null)
+        {
+            UtcTimeStampField startTime = new UtcTimeStampField(9010);
+            startTime.setValue(startDateTime);
+            orderMassStatus2Request.setField(startTime);
+        }
 
-        UtcTimeStampField endTime = new UtcTimeStampField(9011);
-        endTime.setValue(new Date(endTimeMillis));
-        orderMassStatus2Request.setField(endTime);
+        if(endDateTime != null)
+
+        {
+            UtcTimeStampField endTime = new UtcTimeStampField(9011);
+            endTime.setValue(endDateTime);
+            orderMassStatus2Request.setField(endTime);
+        }
 
         for(Character orderStatus : orderStatuses)
         {
