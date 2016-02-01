@@ -1,0 +1,6 @@
+.idea/
+data/
+target/
+dependency-reduced-pom.xml
+dist/
+pro-fix-client.iml

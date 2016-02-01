@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxWidth="600.0" prefHeight="1065.0" prefWidth="600.0" spacing="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.btcc.javafx.MainController">
+   <children>
+      <TabPane maxHeight="500.0" minHeight="450.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="NEVER">
+        <tabs>
+          <Tab text="Get MarketData">
+            <content>
+                  <AnchorPane>
+                     <children>
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="354.0" prefWidth="480.0" vgap="15.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="16.0" prefWidth="54.0" text="Symbol" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldGetMarketDataSymbol" text="XBTCNY" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+
+                              <Label text="Market Depth" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldGetMarketDataMarketDepth" text="3" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+
+                              <CheckBox fx:id="checkBoxGetMarketDataBid" mnemonicParsing="false" selected="true" text="bid" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetMarketDataAsk" mnemonicParsing="false" selected="true" text="ask" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetMarketDataLast" mnemonicParsing="false" text="last" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetMarketDataOpen" mnemonicParsing="false" text="open" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetMarketDataClose" mnemonicParsing="false" text="close" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetMarketDataHigh" mnemonicParsing="false" text="high" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetMarketDataLow" mnemonicParsing="false" text="low" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="8" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetMarketDataVolume" mnemonicParsing="false" text="volume" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="9" GridPane.vgrow="NEVER" />
+                              <Button mnemonicParsing="false" onAction="#sendGetMarketData" text="Send" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Get AccountInfo">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="233.0" layoutY="192.0" maxHeight="37.0" maxWidth="115.0" mnemonicParsing="false" onAction="#sendGetAccountInfo" prefHeight="37.0" prefWidth="114.0" text="Send" AnchorPane.bottomAnchor="191.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="233.0" AnchorPane.topAnchor="192.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Place Order">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="469.0" prefWidth="782.0" vgap="15.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+                           <children>
+                              <Label prefHeight="16.0" prefWidth="54.0" text="Symbol" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldPlaceOrderSymbol" text="XBTCNY" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+
+                                    <Label text="Side" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+
+                                     <Label text="Order type" GridPane.hgrow="NEVER" GridPane.rowIndex="2" GridPane.vgrow="NEVER" />
+
+                                     <Label text="Price" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                               <TextField fx:id="textFieldPlaceOrderPrice" text="3" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+
+                                     <Label text="Order quantity" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                               <TextField fx:id="textFieldPlaceOrderAmount" text="3" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                              <ChoiceBox fx:id="choiceBoxPlaceOrderSide" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ChoiceBox fx:id="choiceBoxPlaceOrderOrderType" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <CheckBox fx:id="checkBoxPlaceOrderTimeInForce" mnemonicParsing="false" text="Time In Force" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Button mnemonicParsing="false" onAction="#sendPlaceOrder" text="Send" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Cancel Order">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="469.0" prefWidth="782.0" vgap="15.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+                           <children>
+                              <Label prefHeight="16.0" prefWidth="54.0" text="Symbol" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldCancelOrderSymbol" text="XBTCNY" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+                              <Label text="Order ID" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldCancelOrderOrderId" text="3" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <Button mnemonicParsing="false" onAction="#sendCancelOrder" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Get Order">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane alignment="CENTER" hgap="5.0" prefHeight="304.0" prefWidth="280.0" vgap="15.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+                           <children>
+                              <Label prefHeight="16.0" prefWidth="54.0" text="Symbol" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldGetOrderSymbol" text="XBTCNY" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+                              <Label text="Order ID" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldGetOrderOrderId" text="3" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                              <Button mnemonicParsing="false" onAction="#sendGetOrder" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabGetOrders" text="Get Orders">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="470.0" prefWidth="647.0">
+                     <children>
+                        <GridPane alignment="CENTER" hgap="5.0" layoutX="47.0" prefHeight="368.0" prefWidth="483.0" vgap="17.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="40.0">
+                           <children>
+                              <Label prefHeight="16.0" prefWidth="54.0" text="Symbol" GridPane.hgrow="NEVER" GridPane.vgrow="NEVER" />
+                              <TextField fx:id="textFieldGetOrdersSymbol" text="XBTCNY" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="0" GridPane.vgrow="NEVER" />
+                               <CheckBox fx:id="checkBoxGetOrdersStatusNew" mnemonicParsing="false" selected="true" text="new" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                               <CheckBox fx:id="checkBoxGetOrdersStatusPartiallyFilled" mnemonicParsing="false" selected="true" text="partially filled" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                               <CheckBox fx:id="checkBoxGetOrdersStatusFilled" mnemonicParsing="false" text="filled" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="3" GridPane.vgrow="NEVER" />
+                               <CheckBox fx:id="checkBoxGetOrdersStatusDoneForDay" mnemonicParsing="false" text="done for day" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
+                               <CheckBox fx:id="checkBoxGetOrdersStatusCanceled" mnemonicParsing="false" text="canceled" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                               <CheckBox fx:id="checkBoxGetOrdersStatusPendingCancel" mnemonicParsing="false" text="pending cancel" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.vgrow="NEVER" />
+                               <CheckBox fx:id="checkBoxGetOrdersStatusPendingNew" mnemonicParsing="false" text="pending new" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetOrdersStatusDoneBySystem" mnemonicParsing="false" text="done by system" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                              <CheckBox fx:id="checkBoxGetOrdersStatusCanceledBySystem" mnemonicParsing="false" text="canceled by system" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.vgrow="NEVER" />
+                              <Button mnemonicParsing="false" onAction="#sendGetOrders" text="Send" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <TextField fx:id="textFieldGetOrdersStartTime" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="textFieldGetOrdersEndTime" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Start Time" GridPane.rowIndex="1" />
+                              <Label text="End Time" GridPane.rowIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <TextArea fx:id="textAreaLog" prefHeight="600.0" prefWidth="580.0" VBox.vgrow="ALWAYS" />
+      <AnchorPane>
+         <children>
+            <Button mnemonicParsing="false" onAction="#clearLogs" text="clear" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0" HBox.hgrow="ALWAYS" VBox.vgrow="NEVER">
+      </Button>
+         </children>
+      </AnchorPane>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
